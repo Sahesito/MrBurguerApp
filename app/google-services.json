@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "298025678397",
+    "firebase_url": "https://mrburguerapp-906da-default-rtdb.firebaseio.com",
+    "project_id": "mrburguerapp-906da",
+    "storage_bucket": "mrburguerapp-906da.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298025678397:android:29db35a17ae23db8fd1c54",
+        "android_client_info": {
+          "package_name": "com.sahe.mrburguer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCj5D1WWCpJHfv2GV7gP4rOCWy4jYz2zdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298025678397:android:fc47e1ae40ee872cfd1c54",
+        "android_client_info": {
+          "package_name": "com.sahe.mrburguerapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCj5D1WWCpJHfv2GV7gP4rOCWy4jYz2zdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
