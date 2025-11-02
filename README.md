@@ -1,4 +1,4 @@
-#🍔 **MrBurguer App**
+# 🍔 **MrBurguer App**
 ---
 ![Firebase](https://img.shields.io/badge/firebase-a08021?style=for-the-badge&logo=firebase&logoColor=ffcd34) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 
@@ -9,7 +9,7 @@ Construida con Jetpack Compose, MVVM y Firebase Realtime Database.
 Una interfaz moderna, transiciones suaves y un flujo claro:
 Splash → Login/Registro → Dashboard → Lista de Comidas → Detalle del Plato.
 
-##🚀 **Características**
+## 🚀 **Características**
 
 - Pantalla de bienvenida con navegación dinámica
 - Autenticación (Firebase)
@@ -19,7 +19,7 @@ Splash → Login/Registro → Dashboard → Lista de Comidas → Detalle del Pla
 - Navegación Compose + Activities
 - Diseño UI moderno inspirado en apps de delivery
 
-##🧠 **Arquitectura**
+## 🧠 **Arquitectura**
 
 Patrón MVVM con separación clara de responsabilidades:
 
@@ -29,29 +29,29 @@ ViewModel	         Lógica de negocio y LiveData
 Repository	       Integración con Firebase
 Models	           Data classes serializables
 
-##📦 **Tecnologías**
-###**Android & UI**
+## 📦 **Tecnologías**
+### **Android & UI**
 - Kotlin + Jetpack Compose
 - Compose Material & Foundation
 - ConstraintLayout para Compose
 - Navigation Compose
   
-###**Arquitectura**
+### **Arquitectura**
 - MVVM + LiveData
 - ViewModel & Runtime KTX
   
-###**Firebase**
+### **Firebase**
 - Firebase Auth
 - Firebase Realtime Database
 
-###**Imágenes**
+### **Imágenes**
 - Coil Compose
 
-###**Utilidades**
+### **Utilidades**
 - Gson
 - Accompanist Pager & Indicators (carrusel/banner)
 
-##📱 **Capturas**
+## 📱 **Capturas**
 
 <img width="351" height="755" alt="image" src="https://github.com/user-attachments/assets/a0218b2d-79b4-42f6-aa28-7a1e14bfd43b" />
 <img width="353" height="768" alt="image" src="https://github.com/user-attachments/assets/0a2dd58c-bccc-4ee6-bfc7-7b223e0ea6a1" />
