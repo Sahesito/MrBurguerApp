@@ -54,6 +54,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
+    implementation(libs.firebase.auth)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -71,5 +72,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.13.2")
     implementation ("androidx.constraintlayout:constraintlayout-compose:1.1.1")
     implementation ("androidx.compose.foundation:foundation:1.9.4")
+    implementation("androidx.navigation:navigation-compose:2.8.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.3")
 
 }

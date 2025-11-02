@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MrBurguerApp">
         <activity
+            android:name=".Activity.Auth.AuthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.Splash.RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.DetalleComida.DetalleComidaActivity"
             android:exported="false" />
         <activity

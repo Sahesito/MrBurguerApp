@@ -1,5 +1,7 @@
 package com.sahe.mrburguerapp.Activity.Dashboard
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -16,7 +18,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import com.google.firebase.auth.FirebaseAuth
 import com.sahe.mrburguerapp.Activity.BaseActivity
+import com.sahe.mrburguerapp.Activity.Splash.SplashActivity
 import com.sahe.mrburguerapp.Domain.BannerModel
 import com.sahe.mrburguerapp.Domain.CategoryModel
 import com.sahe.mrburguerapp.ViewModel.MainViewModel
@@ -25,30 +29,45 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        //Controlador de todo el Dashboard
+
+        // Verificar que haya usuario logueado
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser == null) {
+            // No hay usuario, redirigir a IntroActivity
+            navigateToIntro()
+            return
+        }
+
+        // Controlador de todo el Dashboard
         setContent {
             MainScreen()
         }
     }
+
+    private fun navigateToIntro() {
+        val intent = Intent(this, SplashActivity::class.java).apply {
+            putExtra("FROM_LOGOUT", true)
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        startActivity(intent)
+        finish()
+    }
 }
 
 @Composable
-fun MainScreen(){
-
+fun MainScreen() {
     val scaffoldState = rememberScaffoldState()
     val viewModel = MainViewModel()
 
-    //Datos
+    // Datos
     val banners = remember { mutableStateListOf<BannerModel>() }
-    val categories = remember { mutableStateListOf<CategoryModel>()}
+    val categories = remember { mutableStateListOf<CategoryModel>() }
 
-    //Pantallas de carga
+    // Pantallas de carga
     var showBannerLoading by remember { mutableStateOf(true) }
     var showCategoryLoading by remember { mutableStateOf(true) }
 
-
-
-    LaunchedEffect(Unit){
+    LaunchedEffect(Unit) {
         viewModel.loadBanner().observeForever {
             banners.clear()
             banners.addAll(it)
@@ -64,16 +83,18 @@ fun MainScreen(){
         }
     }
 
-//Scaffold nos brinda una estructura para el Dashboard
-    Scaffold(bottomBar =  { MyBottomBar() },
-        scaffoldState = scaffoldState) {
-        paddingValues ->
+    // Scaffold nos brinda una estructura para el Dashboard
+    Scaffold(
+        bottomBar = { MyBottomBar() },
+        scaffoldState = scaffoldState
+    ) { paddingValues ->
 
-        LazyColumn(modifier = Modifier
-            .fillMaxSize()
-            .padding(paddingValues = paddingValues)
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues = paddingValues)
         ) {
-            //LLama a los Files para mostrarlos
+            // LLama a los Files para mostrarlos
             item {
                 TopBar()
             }
@@ -82,7 +103,7 @@ fun MainScreen(){
                 Banner(banners, showBannerLoading)
             }
 
-            item{
+            item {
                 Search()
             }
 
