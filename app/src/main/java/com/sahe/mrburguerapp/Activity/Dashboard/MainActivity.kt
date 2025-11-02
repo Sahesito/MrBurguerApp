@@ -32,6 +32,11 @@ fun MainScreen(){
         paddingValues ->
         LazyColumn(modifier = Modifier
             .fillMaxSize()
-            .padding(paddingValues = paddingValues)){  }
+            .padding(paddingValues = paddingValues)
+        ) {
+            item {
+                TopBar()
+            }
+        }
     }
 }
