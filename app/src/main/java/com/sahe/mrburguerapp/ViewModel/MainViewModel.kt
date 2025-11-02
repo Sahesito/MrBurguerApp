@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.sahe.mrburguerapp.Domain.BannerModel
 import com.sahe.mrburguerapp.Domain.CategoryModel
+import com.sahe.mrburguerapp.Domain.FoodModel
 import com.sahe.mrburguerapp.Repository.MainRepository
 
 class MainViewModel : ViewModel() {
@@ -16,5 +17,9 @@ class MainViewModel : ViewModel() {
 
     fun loadCategory() : LiveData<MutableList<CategoryModel>> {
         return repository.loadCategory()
+    }
+
+    fun loadFiltered(id:String): LiveData<MutableList<FoodModel>> {
+        return repository.loadFiltered(id)
     }
 }
