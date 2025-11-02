@@ -3,10 +3,10 @@ package com.uilover.project2142.Helper
 import android.content.Context
 import android.widget.Toast
 import com.sahe.mrburguerapp.Activity.Extra.TinyDB
+import com.sahe.mrburguerapp.ChangeNumberItemsListener
 import com.sahe.mrburguerapp.Domain.FoodModel
-import com.uilover.project2142.Model.ChangeNumberItemsListener
 
-
+//Funciones si más adelante queremos implementar un carrito de compras
 class ManagmentCart(val context: Context) {
 
     private val tinyDB = TinyDB(context)

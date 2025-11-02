@@ -36,6 +36,7 @@ import com.sahe.mrburguerapp.Domain.FoodModel
 import com.sahe.mrburguerapp.R
 
 @Composable
+//Listado
 fun ItemsList(items: List<FoodModel>) {
     LazyColumn (modifier = Modifier.padding(horizontal = 16.dp, vertical = 16.dp)) {
         itemsIndexed(items) { index, item ->
@@ -44,6 +45,7 @@ fun ItemsList(items: List<FoodModel>) {
     }
 }
 
+// Muestra los platos que hay
 @Composable
 fun Items(item: FoodModel, index: Int){
     val context = LocalContext.current
@@ -61,6 +63,7 @@ fun Items(item: FoodModel, index: Int){
                 startActivity(context, intent, null)
             }
     ) {
+        //Esto hace que se vean de forma distinta (osea las imagenes en derecha e izquierda)
         if (isEvenRow) {
             FoodImage(item = item)
             FoodDetails(item = item)
@@ -84,6 +87,7 @@ fun FoodImage(item: FoodModel) {
     )
 }
 
+//Datos adicionales pero fundamentales para mostrar (algo resumido , lo demas viene en el detalle)
 @Composable
 fun RowScope.FoodDetails(item: FoodModel){
     Column(modifier = Modifier
@@ -111,6 +115,7 @@ fun RowScope.FoodDetails(item: FoodModel){
     }
 }
 
+//Icono de puntuación
 @Composable
 fun RatingBarRow(star: Double) {
     Row(
@@ -126,6 +131,7 @@ fun RatingBarRow(star: Double) {
     }
 }
 
+//Icono del tiempo de coccion
 @Composable
 fun TimingRow(timeValue: Int) {
     Row(

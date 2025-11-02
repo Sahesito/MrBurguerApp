@@ -32,7 +32,7 @@ import com.sahe.mrburguerapp.R
 class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        //Muestra el contenido
         setContent {
             SplashScreen(onGetStartedClick = {
                 startActivity(Intent(this, MainActivity::class.java))
@@ -52,6 +52,8 @@ fun SplashScreen(onGetStartedClick:()->Unit={}) {
         ConstraintLayout (
             modifier = Modifier.padding(top = 48.dp)
         ) {
+
+            //Imagenes de fondo y logo
             val(backgroundImg, logiImg)=createRefs()
             Image(
                 painter = painterResource(id = R.drawable.intro_pic),
@@ -78,13 +80,14 @@ fun SplashScreen(onGetStartedClick:()->Unit={}) {
                 contentScale = ContentScale.Fit
             )
         }
+        //titulo
         val styledText = buildAnnotatedString {
             append("Bienvenidos a\n")
             withStyle(style = SpanStyle(color = colorResource(R.color.orange))){
                 append("MrBurguer")
             }
-            append("")
         }
+        //formato al texto
         Text(
             text = styledText,
             fontSize = 27.sp,
@@ -95,6 +98,7 @@ fun SplashScreen(onGetStartedClick:()->Unit={}) {
                 .padding(horizontal = 16.dp)
         )
 
+        //Imprime el splashSubtitulo
         Text(
             text = stringResource(R.string.splashSubtitulo),
             fontSize = 16.sp,

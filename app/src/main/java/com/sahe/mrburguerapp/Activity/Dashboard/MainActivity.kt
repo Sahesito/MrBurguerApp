@@ -25,6 +25,7 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        //Controlador de todo el Dashboard
         setContent {
             MainScreen()
         }
@@ -37,9 +38,11 @@ fun MainScreen(){
     val scaffoldState = rememberScaffoldState()
     val viewModel = MainViewModel()
 
+    //Datos
     val banners = remember { mutableStateListOf<BannerModel>() }
     val categories = remember { mutableStateListOf<CategoryModel>()}
 
+    //Pantallas de carga
     var showBannerLoading by remember { mutableStateOf(true) }
     var showCategoryLoading by remember { mutableStateOf(true) }
 
@@ -61,13 +64,16 @@ fun MainScreen(){
         }
     }
 
+//Scaffold nos brinda una estructura para el Dashboard
     Scaffold(bottomBar =  { MyBottomBar() },
         scaffoldState = scaffoldState) {
         paddingValues ->
+
         LazyColumn(modifier = Modifier
             .fillMaxSize()
             .padding(paddingValues = paddingValues)
         ) {
+            //LLama a los Files para mostrarlos
             item {
                 TopBar()
             }

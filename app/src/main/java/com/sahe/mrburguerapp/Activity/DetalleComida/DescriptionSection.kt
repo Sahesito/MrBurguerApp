@@ -12,6 +12,7 @@ import androidx.compose.ui.unit.sp
 import com.sahe.mrburguerapp.R
 
 @Composable
+//Descripcion de cada plato
 fun DescriptionSection(description: String){
     Column {
         Text(

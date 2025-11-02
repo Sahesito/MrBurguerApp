@@ -13,7 +13,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.sahe.mrburguerapp.R
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -21,10 +20,11 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun MyBottomBar(){
+
     val bottomMenuItemsList = prepareBottomMenu()
-    val context = LocalContext.current
     var selectedItem by remember { mutableStateOf("Home") }
 
+    //Formato (solo diseño)
     BottomAppBar (
         backgroundColor = colorResource(R.color.grey),
         elevation = 3.dp
@@ -52,11 +52,14 @@ fun MyBottomBar(){
         }
     }
 }
+
+//1. Datos de los botones
 data class BottomMenuItem(
     val label: String,
     val icon: Painter
 )
 
+//2. Se les asignan datos
 @Composable
 fun prepareBottomMenu(): List<BottomMenuItem>{
     val bottomMenuItemList = arrayListOf<BottomMenuItem>()

@@ -26,6 +26,7 @@ import com.sahe.mrburguerapp.R
 import java.text.DecimalFormat
 
 @Composable
+//Esto se resume en el precio ya multiplicado por la cantidad de platos y el boton de ordenar
 fun FooterSection(onAddToCartClick:()->Unit, totalPrice:Double, modifier: Modifier = Modifier){
     ConstraintLayout(
         modifier = modifier
@@ -49,13 +50,14 @@ fun FooterSection(onAddToCartClick:()->Unit, totalPrice:Double, modifier: Modifi
                     end.linkTo(parent.end)
                 }
         ) {
+
             Icon(painter = painterResource(R.drawable.cart),
                 contentDescription = null,
                 tint = Color.White,
                 modifier = Modifier.size(20.dp)
             )
             Spacer(modifier = Modifier.width(16.dp))
-            Text("Ordenar", fontSize = 20.sp, color = Color.White)
+            Text("Ordenar", fontSize = 14.sp, color = Color.White)
         }
         Column (modifier = Modifier
             .width(140.dp)

@@ -28,6 +28,8 @@ import com.sahe.mrburguerapp.R
 
 @Composable
 @Preview
+
+//Diseño para la barar de busqueda
 fun Search(){
     var text by rememberSaveable { mutableStateOf("") }
     TextField(value = text, onValueChange = {text = it},
@@ -39,6 +41,7 @@ fun Search(){
                 color = Color.DarkGray
             )
         },
+        // Icono que aparece al final (a la derecha) del texto.
         trailingIcon = {
             Image(painter = painterResource(R.drawable.search),
                 contentDescription = null,

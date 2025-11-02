@@ -24,6 +24,8 @@ import com.sahe.mrburguerapp.R
 import com.sahe.mrburguerapp.Domain.FoodModel
 
 @Composable
+
+//Cantidad de platos para agregar en el carrito
 fun NumberRow(
     item: FoodModel,
     numberInCart: Int,

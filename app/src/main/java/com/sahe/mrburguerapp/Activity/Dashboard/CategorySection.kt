@@ -31,6 +31,7 @@ import com.sahe.mrburguerapp.Domain.CategoryModel
 import com.sahe.mrburguerapp.R
 
 @Composable
+//Muestra las categorias
 fun CategorySection(categories: SnapshotStateList<CategoryModel>, showCategoryLoading: Boolean){
     Text(
         text = "Elige una categoria",
@@ -38,7 +39,7 @@ fun CategorySection(categories: SnapshotStateList<CategoryModel>, showCategoryLo
         fontWeight = FontWeight.Bold,
         modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
     )
-
+    //Mientras cargan los datos, muestra una barra de carga
     if(showCategoryLoading) {
         Box(
             modifier = Modifier
@@ -48,7 +49,9 @@ fun CategorySection(categories: SnapshotStateList<CategoryModel>, showCategoryLo
         ) {
             CircularProgressIndicator()
         }
+        //Una vez cargado, muestra las categorias
     } else {
+        //Las agrupa en 3 columnas
         val rows = categories.chunked(3)
         val context = LocalContext.current
 
@@ -80,6 +83,7 @@ fun CategorySection(categories: SnapshotStateList<CategoryModel>, showCategoryLo
                             }
                         )
                     }
+                    //Rellena espacios vacios si una fila tiene menos de 3
                     if (rows.size < 3 ){
                         repeat(3-rows.size){
                             Spacer(modifier = Modifier.weight(1f))
@@ -92,6 +96,7 @@ fun CategorySection(categories: SnapshotStateList<CategoryModel>, showCategoryLo
 }
 
 @Composable
+//Item individual que muestra su imagen con su texto
 fun CategoryItem(category: CategoryModel, modifier: Modifier = Modifier, onItemClick:()-> Unit){
     Column(modifier = modifier
         .fillMaxWidth()

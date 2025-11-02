@@ -13,6 +13,7 @@ import com.sahe.mrburguerapp.Domain.FoodModel
 
 class MainRepository {
 
+    //Conexión entre el firebase
     private val firebaseDatabase = FirebaseDatabase.getInstance()
 
     fun loadBanner(): LiveData<MutableList<BannerModel>> {

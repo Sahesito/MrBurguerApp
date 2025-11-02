@@ -38,6 +38,7 @@ import com.sahe.mrburguerapp.R
 
 @Composable
 fun Banner(banners: SnapshotStateList<BannerModel>, showBannerLoading: Boolean){
+    //Muestra un indicador de carga mientras se cargan los datos
     if(showBannerLoading){
         Box(modifier = Modifier
             .fillMaxSize()
@@ -47,6 +48,7 @@ fun Banner(banners: SnapshotStateList<BannerModel>, showBannerLoading: Boolean){
             CircularProgressIndicator()
         }
     } else {
+        //Una vez cargado, muestra las imagenes
         Banners(banners = banners)
     }
 }
@@ -59,6 +61,7 @@ fun Banners(banners: List<BannerModel>){
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
+//Función del Carrusel
 fun AutoSlidingCarousel(modifier: Modifier = Modifier,
                         pagerState: PagerState = remember { PagerState() },
                         banners: List<BannerModel>){
@@ -92,6 +95,7 @@ fun AutoSlidingCarousel(modifier: Modifier = Modifier,
 }
 
 @Composable
+// Formato para los puntitos
 fun DotIndicator(
     modifier: Modifier = Modifier,
     totalDots: Int,
@@ -107,6 +111,7 @@ fun DotIndicator(
     ) {
         items(totalDots) { index ->
                 IndicatorDot(
+                    // El puntito de la imagen que está selecionada se pinta, si se cambia, se cambia de color
                     color = if (index == selectedIndex) selectedColor else unSelectedColor,
                     size = dotSize
                 )
@@ -118,6 +123,7 @@ fun DotIndicator(
 }
 
 @Composable
+// Formato de un puntito
 fun IndicatorDot(
     modifier: Modifier = Modifier,
     size: Dp,

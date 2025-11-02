@@ -2,8 +2,6 @@ package com.sahe.mrburguerapp.Activity.ItemsList
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -28,8 +26,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.sahe.mrburguerapp.Activity.BaseActivity
 import com.sahe.mrburguerapp.R
 import com.sahe.mrburguerapp.ViewModel.MainViewModel
@@ -42,9 +38,11 @@ class ItemsListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //Manejan nulls
         id = intent.getStringExtra("id") ?: ""
         title = intent.getStringExtra("title") ?: ""
 
+        //Muestra el contenido
         setContent {
             ItemsListScreen(
                 title = title,
@@ -63,9 +61,13 @@ private fun ItemsListScreen(
   viewModel: MainViewModel,
   id: String
 ) {
+
+    //Cargan los datos
     val items by viewModel.loadFiltered(id).observeAsState(emptyList())
     var isLoading by remember { mutableStateOf(true) }
 
+
+    //Se aseguran que los datos carguen correctamente
     LaunchedEffect(id) {
         viewModel.loadFiltered(id)
     }
@@ -76,6 +78,7 @@ private fun ItemsListScreen(
         ConstraintLayout(
             modifier = Modifier.padding(top = 36.dp, start = 16.dp, end = 16.dp)
         ) {
+            //Se referencian para ubicarlos
             val (backBtn, cartTxt) = createRefs()
             Text(
                 modifier = Modifier
@@ -88,6 +91,8 @@ private fun ItemsListScreen(
                 fontSize = 25.sp,
                 text = title
             )
+
+            //Icono de retroceso
             Image(painter = painterResource(R.drawable.back_grey),
                 contentDescription = null,
                 modifier = Modifier
@@ -101,6 +106,8 @@ private fun ItemsListScreen(
                     }
             )
         }
+
+        //Mientras se cargan los datos, muestra la barra de carga
         if(isLoading) {
             Box(modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
@@ -108,6 +115,7 @@ private fun ItemsListScreen(
                 CircularProgressIndicator()
             }
         } else {
+            // Una vez cargada muestra los items
             ItemsList(items)
         }
     }

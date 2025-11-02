@@ -1,6 +1,5 @@
 package com.sahe.mrburguerapp.Activity.Splash
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -28,24 +27,7 @@ fun GetStartedButtons(
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
     ) {
-        Button(
-            onClick = {}, colors = ButtonDefaults.buttonColors(
-                containerColor = colorResource(R.color.darkBrown)
-            ),
-            shape = RoundedCornerShape(50.dp),
-            modifier = modifier
-                .padding(end = 16.dp)
-                .fillMaxWidth(0.35f)
-                .border(1.dp, Color.White, shape = RoundedCornerShape(50.dp))
-                .height(50.dp)
-        ) {
-            Text(
-                text = "Login",
-                fontSize = 16.sp,
-                color = Color.White
-            )
-        }
-
+        //Boton de ingreso el cual nos lleva al Dashboard
         Button(
             onClick = { onClick() }, colors = ButtonDefaults.buttonColors(
                 containerColor = colorResource(R.color.orange)

@@ -2,6 +2,7 @@ package com.sahe.mrburguerapp.Domain
 
 import java.io.Serializable
 
+//Datos del plato
 data class FoodModel(
     var BestFood: Boolean = false,
     var CategoryId: String = "",

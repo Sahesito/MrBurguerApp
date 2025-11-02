@@ -28,7 +28,10 @@ fun TopBar(){
             .padding(horizontal = 16.dp)
             .fillMaxWidth()
     ) {
+//Creamos referencias para diferenciar cada composable
         val (name, settings, notification) = createRefs()
+
+        //Imagen de las configuraciones(solo diseño)
         Image(painter = painterResource(R.drawable.settings_icon),
             contentDescription = null,
             modifier = Modifier
@@ -47,6 +50,7 @@ fun TopBar(){
                 },
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            //Texto centrado del Dashboard
             Text(text = buildAnnotatedString {
                 withStyle(style = SpanStyle( color = Color.Red)) {
                     append("MR")
@@ -65,6 +69,7 @@ fun TopBar(){
             )
         }
 
+        //Imagen de la campanita(solo diseño)
         Image(painter = painterResource(R.drawable.bell_icon),
             contentDescription = null,
             modifier = Modifier

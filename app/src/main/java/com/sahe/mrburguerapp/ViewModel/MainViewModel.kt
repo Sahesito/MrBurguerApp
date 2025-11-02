@@ -10,7 +10,7 @@ import com.sahe.mrburguerapp.Repository.MainRepository
 class MainViewModel : ViewModel() {
 
     private val repository = MainRepository()
-
+//Expone los datos de la UI utilizando el LiveData
     fun loadBanner() : LiveData<MutableList<BannerModel>> {
         return repository.loadBanner()
     }

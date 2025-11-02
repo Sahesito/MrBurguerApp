@@ -32,6 +32,7 @@ class DetalleComidaActivity : BaseActivity() {
         item.numberInCart = 1
         managmentCart = ManagmentCart(this)
 
+        //Se muestra el contenido
         setContent {
             DetalleScreen(
                 item = item,
@@ -48,6 +49,7 @@ private fun DetalleScreen(
     onBackClick: () -> Unit,
     onAddToCartClick: () -> Unit
 ) {
+    //Aqui se agrupan todos los files para mostrarse
     var numberInCart by remember { mutableStateOf(item.numberInCart) }
     ConstraintLayout {
         val (footer, column) = createRefs()

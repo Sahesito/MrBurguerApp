@@ -22,6 +22,7 @@ import com.sahe.mrburguerapp.Domain.FoodModel
 import com.sahe.mrburguerapp.R
 
 @Composable
+
 fun HeaderSection(
     item: FoodModel,
     numberInCart: Int,
@@ -53,6 +54,7 @@ fun HeaderSection(
                     start.linkTo(parent.start)
                 }
         )
+        //Imagen para el detail
         Image(
             painter = painterResource(R.drawable.arc_bg),
             contentDescription = null,
@@ -106,7 +108,7 @@ fun HeaderSection(
         )
     }
 }
-
+//Boton de retroceso
 @Composable
 private fun BackButton(onClick:()->Unit, modifier: Modifier = Modifier) {
     Image(
@@ -117,7 +119,7 @@ private fun BackButton(onClick:()->Unit, modifier: Modifier = Modifier) {
             .clickable { onClick() }
     )
 }
-
+//Icono de Fav
 @Composable
 private fun FavoriteButton(modifier: Modifier = Modifier) {
     Image(

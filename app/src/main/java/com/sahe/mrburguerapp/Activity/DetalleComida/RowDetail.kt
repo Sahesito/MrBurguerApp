@@ -18,6 +18,7 @@ import com.sahe.mrburguerapp.Domain.FoodModel
 import com.sahe.mrburguerapp.R
 
 @Composable
+//Detalles de los platos
 fun RowDetail(item: FoodModel, modifier: Modifier = Modifier) {
     Row(modifier = modifier.padding(top = 32.dp), verticalAlignment = Alignment.CenterVertically) {
         Image(painter = painterResource(R.drawable.time_color), contentDescription = null)
