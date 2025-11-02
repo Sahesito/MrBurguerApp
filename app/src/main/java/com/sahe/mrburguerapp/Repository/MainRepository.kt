@@ -7,6 +7,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.sahe.mrburguerapp.Domain.BannerModel
+import com.sahe.mrburguerapp.Domain.CategoryModel
 
 class MainRepository {
 
@@ -32,4 +33,26 @@ class MainRepository {
         })
         return listData
     }
+
+    fun loadCategory(): LiveData<MutableList<CategoryModel>> {
+        val listData = MutableLiveData<MutableList<CategoryModel>>()
+        val ref = firebaseDatabase.getReference("Category")
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val list = mutableListOf<CategoryModel>()
+                for (childSnapshot in snapshot.children) {
+                    val item = childSnapshot.getValue(CategoryModel::class.java)
+                    item?.let { list.add(it) }
+                }
+                listData.value = list
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+        return listData
+    }
+
 }

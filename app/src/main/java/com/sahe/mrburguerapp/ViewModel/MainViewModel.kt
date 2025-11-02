@@ -3,6 +3,7 @@ package com.sahe.mrburguerapp.ViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.sahe.mrburguerapp.Domain.BannerModel
+import com.sahe.mrburguerapp.Domain.CategoryModel
 import com.sahe.mrburguerapp.Repository.MainRepository
 
 class MainViewModel : ViewModel() {
@@ -11,5 +12,9 @@ class MainViewModel : ViewModel() {
 
     fun loadBanner() : LiveData<MutableList<BannerModel>> {
         return repository.loadBanner()
+    }
+
+    fun loadCategory() : LiveData<MutableList<CategoryModel>> {
+        return repository.loadCategory()
     }
 }
